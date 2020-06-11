@@ -9,8 +9,9 @@ $(document).ready(function(){
   })
 })
 
+let remainder;
+
 function translateToRomanNumeral(number) {
-  let remainder = 0;
   let result;
 
   // romanNumeralM(number);
@@ -18,19 +19,33 @@ function translateToRomanNumeral(number) {
   // romanNumeralC(number);
   // romanNumeralL(number);
   // romanNumeralX(number);
-  // romanNumeralV(number);
-  //romanNumeralI(number);
+    // romanNumeralV(number);
+    // romanNumeralI(number);
 
-  result = romanNumeralI(number);
+  result = romanNumeralV(number) + romanNumeralI(remainder);
   return result;
 }
 
 
 
+function romanNumeralV(number) {
+  const dividedNumber = Math.floor(number / 5)
+  const modNumber = number % 5
 
+  remainder = modNumber;
+  return addV(dividedNumber);
+}
+
+function addV(number) {
+  let vReturnString = "";
+  for (i=0; i < number; i++) {
+    vReturnString += "V"
+  }
+  return vReturnString
+}
 
 function romanNumeralI(number) {
-  const dividedNumber = number/1
+  const dividedNumber = Math.floor(number/1)
   return addI(dividedNumber)
 }
 
