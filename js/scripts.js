@@ -14,19 +14,89 @@ let remainder;
 function translateToRomanNumeral(number) {
   let result;
 
-  // romanNumeralM(number);
-  // romanNumeralD(number);
-  // romanNumeralC(number);
-  // romanNumeralL(number);
-  // romanNumeralX(number);
-    // romanNumeralV(number);
-    // romanNumeralI(number);
-
-  result = romanNumeralV(number) + romanNumeralI(remainder);
+  result = romanNumeralM(number) + romanNumeralD(remainder) + romanNumeralC(remainder) + romanNumeralL(remainder) + romanNumeralX(remainder) + romanNumeralV(remainder) + romanNumeralI(remainder);
   return result;
 }
 
+function romanNumeralM(number) {
+  const dividedNumber = Math.floor(number / 1000);
+  const modNumber = number % 1000;
 
+  remainder = modNumber;
+  return addM(dividedNumber);
+}
+
+function addM(number) {
+  let mReturnString = "";
+  for (i=0; i < number; i++) {
+    mReturnString += "M"
+  }
+  return mReturnString
+}
+
+function romanNumeralD(number) {
+  const dividedNumber = Math.floor(number / 500);
+  const modNumber = number % 500;
+
+  remainder = modNumber;
+  return addD(dividedNumber);
+}
+
+function addD(number) {
+  let dReturnString = "";
+  for (i=0; i < number; i++) {
+    dReturnString += "D"
+  }
+  return dReturnString
+}
+
+function romanNumeralC(number) {
+  const dividedNumber = Math.floor(number / 100);
+  const modNumber = number % 100;
+
+  remainder = modNumber;
+  return addC(dividedNumber);
+}
+
+function addC(number) {
+  let cReturnString = "";
+  for (i=0; i < number; i++) {
+    cReturnString += "C"
+  }
+  return cReturnString
+}
+
+function romanNumeralL(number) {
+  const dividedNumber = Math.floor(number / 50);
+  const modNumber = number % 50;
+
+  remainder = modNumber;
+  return addL(dividedNumber);
+}
+
+function addL(number) {
+  let lReturnString = "";
+  for (i=0; i < number; i++) {
+    lReturnString += "L"
+  }
+  return lReturnString
+}
+
+function romanNumeralX(number) {
+  const dividedNumber = Math.floor(number / 10);
+  const modNumber = number % 10;
+
+  remainder = modNumber;
+  return addX(dividedNumber);
+}
+
+function addX(number) {
+  let xReturnString = "";
+  for (i=0; i < number; i++) {
+    xReturnString += "X"
+  }
+  return xReturnString
+}
 
 function romanNumeralV(number) {
   const dividedNumber = Math.floor(number / 5)
@@ -51,73 +121,16 @@ function romanNumeralI(number) {
 
 function addI(number) {
   let iReturnString = "";
-  for (i=0; i < number; i++) {
-    iReturnString += "I"
+  if (number >= 4) {
+    iReturnString = "IV"
+    for (i=4; i < number; i++) {
+      iReturnString += "I"
+    }
+  } else {
+    for (i=0; i < number; i++) {
+      iReturnString += "I"
+    }
   }
 
   return iReturnString
 }
-
-
-/* 
-
-for (i=0; i < number.length; i++) {
-
-  extractedNumber = number.charAt(number.length - i)
-
-  divisibleNumber = extractedNumber + zero(i)
-}
-
-function zero(number) {
-
-  if (0) {
-    return ""
-  } else if (1) {
-    return "0"
-  } else if (2)
-}
-
-*/
-
-
-
-
-
-
-
-
-/* Input variable = 0
-  result = DLIII
-
-
-romanNumeralD(553) {
-  divide number by 500
-
-  1
-
-  53
-}
-
-romanNumeralC (53) {
-  53/100 = 0.1232321
-
-  0
-}
-
-romanNumeralL (53)
-  53/50
-
-  1
-
-  modulus 3 
-
-
-  romanNumeralI (3)
-
-  3/1
-
-  3
-
-  0
-*/
-
